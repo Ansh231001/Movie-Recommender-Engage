@@ -1,0 +1,86 @@
+{% extends "public/main_template.html" %} {% block index %}
+
+<button style="margin: 2%; font-size: 1.5rem" class="btn btn-danger" type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+  Filters
+</button>
+
+
+
+<!-- SEARCH SECTION  -->
+{% if collections|length == 1 %}
+<h1 style="margin:2%;">No data Found</h1>
+{% endif %}
+{% if collections|length > 1 %}
+<section class="based-on-your-search" style="margin: 2%">
+  <h3>Based on your search</h3>
+  <div class="owl-carousel owl-theme">
+    {% for m in range(collections|length) %} {% if p3[m] and interests[m] %}
+    <div class="card text-white bg-dark">
+      <img src="{{p1[m]}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{collections[m]}}</h5>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</section>
+
+
+<!-- FILTER SECTION SHOWN ONLY WHEN FILTERS ARE USED -->
+{% if filtered|length == 1 %}
+<h1 style="margin:2%;">No data Found</h1>
+{% endif %}
+{% if filtered|length > 1 %}
+<section class='filters_section' style="margin: 2%">
+  <h3>Filtered Content</h3>
+  <div class="owl-carousel owl-theme" id="filters">
+    {% for m in range(filtered|length) %}
+    <div class="card text-white bg-dark item">
+      <img id="img" src="{{p4[m]}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{filtered[m]}}</h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<!-- INTEREST SECTION SHOWN ONLY WHEN INTEREST ARE PRESENT -->
+{% endif %} {% if interests %}
+<section class="interests" style="margin: 2%">
+  <h3>Movies you may like</h3>
+  <div class="owl-carousel owl-theme">
+    {% for m in range(interests|length) %}
+    <div class="card text-white bg-dark item">
+      {% if p3[m] and interests[m] %}
+      <img src="{{p3[m]}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{interests[m]}}</h5>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<!-- POPULAR MOVIES SECTION -->
+<h3 style="margin: 2%">Current top grossers</h3>
+<section class="popularity" style="margin: 2%">
+  <div class="owl-carousel owl-theme">
+    {% for m in range(20) %}
+    <div class="card text-white bg-dark item">
+      <img src="{{p2[m]}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{movies[m]}}</h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+</div>
