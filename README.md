@@ -108,8 +108,9 @@
  </h3>
  
  
- pip install requirements.txt<br>
- $ source env/Scripts/activate 
+ pip install flask<br>
+ $ source env/Scripts/activate <br>
+ pip install -r requirements.txt
 
 
 <br>
