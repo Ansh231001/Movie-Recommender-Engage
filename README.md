@@ -106,8 +106,9 @@
  <h3>
   Installation
  </h3>
- $ source env/Scripts/activate <br>
- pip install requirements.txt
+ pip install requirements.tx t<br>
+ $ source env/Scripts/activate 
+
 
 <br>
 <h3>
